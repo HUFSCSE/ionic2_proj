@@ -26,9 +26,12 @@
             <img src="{{post.snippet.thumbnails.high.url}}">
           </div>
         </div>
-        <button fab fab-right fab-top class="fab-map" (click)="playVideo($event, post)">
+        <ion-fab right top class="fab-map"> 
+        <button ion-fab (click)="playVideo($event, post)">
           <ion-icon name='play'></ion-icon>
-        </button>
+          </button>
+
+        </ion-fab>
       </div>
       <ion-item style="padding-top: 26px;">
         <ion-icon subtle large item-left name='disc' primary></ion-icon>

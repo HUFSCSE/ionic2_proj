@@ -36,6 +36,14 @@ export class VideoPage {
 
   }
 
+  ionViewDidLoad() {
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  }
+
   launchYTPlayer(id, title): void {
     this.ytPlayer.launchPlayer(id, title);
   }
@@ -78,8 +86,8 @@ export class VideoPage {
     console.log(post);
     console.log("id : "+post.id);
     this.onPlaying = true;
-    this.topurl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + post.id.videoId + "?rel=0");
-    //this.ytPlayer.launchPlayer(post.id, post.snippet.title);
+//    this.topurl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + post.id.videoId + "?rel=0");
+    this.ytPlayer.launchPlayer(post.id, post.snippet.title);
 
   }
 

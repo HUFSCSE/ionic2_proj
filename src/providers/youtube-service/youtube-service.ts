@@ -1,5 +1,5 @@
-import { Injectable, NgZone } from '@angular/core';
-import { Http, URLSearchParams, Response } from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http  } from '@angular/http';
 import { window } from '@angular/platform-browser/src/facade/browser';
 
 /*
@@ -68,10 +68,11 @@ export class YoutubeService {
   }
 
   launchPlayer(id, title):void {
+    /*
     this.youtube.ready = true;
     this.bindPlayer('placeholder');
     this.loadPlayer();
-
+    */
     this.youtube.player.loadVideoById(id);
     this.youtube.videoId = id;
     this.youtube.videoTitle = title;

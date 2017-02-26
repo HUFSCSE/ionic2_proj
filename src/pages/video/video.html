@@ -6,18 +6,23 @@
 -->
 <ion-header>
   <ion-navbar class="youtube-player-header" dark>
-    <div id="player" class="embed-responsive embed-responsive-16by9">
-      <div id="placeholder" style="width: 100%" class="embed-responsive-item"></div>
-      <iframe class="embed-responsive-item" style="width: 100%; height: 100%" [src]="topurl"></iframe>
-      <!--
-      <div id="placeholder" style="width: 100%" class="embed-responsive-item"></div>
-      <div class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background: url('images/cover.png'); background-size:cover;" *ngIf = "!onPlaying"></div>
-      -->
-    </div>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Video</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="video">
+  <div id="player" class="embed-responsive embed-responsive-16by9">
+    <!--
+    <div id="placeholder" style="width: 100%" class="embed-responsive-item"></div>
+    <iframe class="embed-responsive-item" style="width: 100%; height: 100%" [src]="topurl"></iframe>
+    -->
+    <div id="placeholder" style="width: 100%" class="embed-responsive-item"></div>
+    <div class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background: url('images/cover.png'); background-size:cover;" *ngIf = "!onPlaying"></div>
+  </div>
+
   <div *ngFor="let post of posts">
     <ion-card class="adv-map">
       <div style="position: relative">
@@ -26,7 +31,7 @@
             <img src="{{post.snippet.thumbnails.high.url}}">
           </div>
         </div>
-        <ion-fab right top class="fab-map"> 
+        <ion-fab right top class="fab-map">
         <button ion-fab (click)="playVideo($event, post)">
           <ion-icon name='play'></ion-icon>
           </button>
@@ -38,7 +43,7 @@
         <h2 class="item-text-wrap">{{post.snippet.title}}</h2>
       </ion-item>
       <ion-item actions>
-        <button primary clear item-right>
+        <button ion-button color="primary" clear small item-right>
           <ion-icon name='share'></ion-icon>
           SHARE
         </button>
@@ -46,6 +51,6 @@
 
     </ion-card>
   </div>
-  <button light>Load More...</button>
+  <button ion-button color="light">Load More...</button>
 
 </ion-content>

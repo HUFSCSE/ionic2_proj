@@ -5,6 +5,8 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import {CandiPage} from "../pages/candi/candi";
 import {DetailPage} from "../pages/detail/detail";
+import {VideoPage} from "../pages/video/video";
+import {YoutubeService} from "../providers/youtube-service/youtube-service";
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import {DetailPage} from "../pages/detail/detail";
     Page1,
     Page2,
     CandiPage,
-    DetailPage
+    DetailPage,
+    VideoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -23,8 +26,9 @@ import {DetailPage} from "../pages/detail/detail";
     Page1,
     Page2,
     CandiPage,
-    DetailPage
+    DetailPage,
+    VideoPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},YoutubeService]
 })
 export class AppModule {}

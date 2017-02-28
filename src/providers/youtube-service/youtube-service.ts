@@ -68,11 +68,11 @@ export class YoutubeService {
   }
 
   launchPlayer(id, title):void {
-    /*
+
     this.youtube.ready = true;
     this.bindPlayer('placeholder');
     this.loadPlayer();
-    */
+
     this.youtube.player.loadVideoById(id);
     this.youtube.videoId = id;
     this.youtube.videoTitle = title;

@@ -8,6 +8,15 @@ import {DetailPage} from "../pages/detail/detail";
 import {VideoPage} from "../pages/video/video";
 import {LoginModalPage} from "../pages/login-modal/login-modal";
 import {YoutubeService} from "../providers/youtube-service/youtube-service";
+import {AngularFireModule} from "angularfire2";
+
+const firebaseConfig={
+  apiKey: "AIzaSyDszBUAqnRlgnpPdcl7u2T4Tsb1QANHhRY",
+  authDomain: "ionic2study-a2337.firebaseapp.com",
+  databaseURL: "https://ionic2study-a2337.firebaseio.com",
+  storageBucket: "ionic2study-a2337.appspot.com",
+  messagingSenderId: "194394008274"
+};
 
 @NgModule({
   declarations: [
@@ -20,7 +29,8 @@ import {YoutubeService} from "../providers/youtube-service/youtube-service";
     LoginModalPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

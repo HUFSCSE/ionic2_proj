@@ -16,11 +16,11 @@ import {YoutubeService} from "../../providers/youtube-service/youtube-service";
  templateUrl: 'video.html',
 */
 @Component({
-  templateUrl: 'video.html',
+  templateUrl: 'video2.html',
   providers:[YoutubeService]
 })
 export class VideoPage {
-  topurl: SafeResourceUrl;
+  topurl: SafeResourceUrl[];
 
   channelID: string = 'UCbtVfS6cflbIXTZ0nGeRWVA';
   maxResults: string = '10';
@@ -32,8 +32,18 @@ export class VideoPage {
 
   constructor(public http: Http, public nav:NavController, public ytPlayer: YoutubeService, public sanitizer: DomSanitizer) {
     this.loadSettings();
-    this.topurl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/8A2t_tAjMz8?&showinfo=0");
+    //this.topurl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/8A2t_tAjMz8?&showinfo=0");
 
+  }
+
+  ionViewDidLoad() {
+    /*
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    */
   }
 
   launchYTPlayer(id, title): void {
@@ -41,6 +51,7 @@ export class VideoPage {
   }
 
   fetchData(): void {
+    console.log("heelo fetch")
 
     let url = 'https://www.googleapis.com/youtube/v3/search?part=id,snippet&channelId=' + this.channelID + '&q=' + this.searchQuery + '&type=video&order=viewCount&maxResults=' + this.maxResults + '&key=' + this.googleToken;
 
@@ -64,6 +75,7 @@ export class VideoPage {
       // });
       this.posts = this.posts.concat(data.items);
     });
+
   }
 
   loadSettings(): void {
@@ -78,9 +90,12 @@ export class VideoPage {
     console.log(post);
     console.log("id : "+post.id);
     this.onPlaying = true;
-    this.topurl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + post.id.videoId + "?rel=0");
+    //this.topurl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + post.id.videoId + "?rel=0");
     //this.ytPlayer.launchPlayer(post.id, post.snippet.title);
+  }
 
+  mycleanURL(u : string): SafeResourceUrl{
+    return this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/" + u + "?rel=0");
   }
 
   loadMore(): void {

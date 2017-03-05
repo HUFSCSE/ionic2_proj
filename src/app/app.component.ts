@@ -44,6 +44,7 @@ export class MyApp {
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
+
       StatusBar.styleDefault();
       Splashscreen.hide();
     });

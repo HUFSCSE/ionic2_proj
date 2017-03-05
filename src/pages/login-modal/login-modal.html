@@ -15,4 +15,11 @@
 
 <ion-content padding>
 
+  <ion-list>
+  <button ion-button full (click)="authLogin()">Login</button>
+  <button ion-button full icon-left (click)="signInWithFacebook()"><ion-icon name="logo-facebook"></ion-icon>Login</button>
+  <button ion-button full icon-left (click)="signInWithGoogle()"><ion-icon name="logo-google"></ion-icon>Login</button>
+
+  </ion-list>
+
 </ion-content>

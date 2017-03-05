@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 'angularfire2';
+import {AuthService} from "../../providers/auth-service/auth-service";
+
 /*
   Generated class for the LoginModal page.
 
@@ -13,10 +16,25 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LoginModalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public af: AngularFire, private _auth: AuthService, public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginModalPage');
   }
 
+  authLogin() {
+  }
+
+  signInWithFacebook(): void {
+    this._auth.signInWithFacebook()
+      .then((success) => this.navigateAbout(success));
+  }
+
+  signInWithGoogle(): void {
+    this._auth.signInWithGoogle()
+      .then((success) => this.navigateAbout(success));
+  }
+
+  private navigateAbout(successData): void {
+  }
 }

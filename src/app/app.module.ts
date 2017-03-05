@@ -9,6 +9,7 @@ import {VideoPage} from "../pages/video/video";
 import {LoginModalPage} from "../pages/login-modal/login-modal";
 import {YoutubeService} from "../providers/youtube-service/youtube-service";
 import {AngularFireModule} from "angularfire2";
+import {AuthService} from "../providers/auth-service/auth-service";
 
 const firebaseConfig={
   apiKey: "AIzaSyDszBUAqnRlgnpPdcl7u2T4Tsb1QANHhRY",
@@ -42,6 +43,6 @@ const firebaseConfig={
     VideoPage,
     LoginModalPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},YoutubeService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},YoutubeService,AuthService]
 })
 export class AppModule {}

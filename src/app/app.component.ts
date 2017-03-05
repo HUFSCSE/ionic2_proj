@@ -6,6 +6,7 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { CandiPage } from '../pages/candi/candi'
 import {VideoPage} from "../pages/video/video";
+import {LoginModalPage} from "../pages/login-modal/login-modal";
 
 
 @Component({
@@ -26,7 +27,8 @@ export class MyApp {
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
       { title: 'Candidate', component: CandiPage },
-      { title: 'Video', component: VideoPage }
+      { title: 'Video', component: VideoPage },
+      { title: 'LoginModalPage', component: LoginModalPage }
     ];
 
   }

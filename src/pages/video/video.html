@@ -5,19 +5,23 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-navbar>  
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Video Page</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content class="video">
   <ion-navbar class="youtube-player-header" dark>
     <div id="player" class="embed-responsive embed-responsive-16by9">
       <div id="placeholder" style="width: 100%" class="embed-responsive-item"></div>
       <iframe class="embed-responsive-item" style="width: 100%; height: 100%" [src]="topurl"></iframe>
-      <!--
-      <div id="placeholder" style="width: 100%" class="embed-responsive-item"></div>
-      <div class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: black; background: url('images/cover.png'); background-size:cover;" *ngIf = "!onPlaying"></div>
-      -->
+      <div id="placeholder2" style="width: 100%" class="embed-responsive-item"></div>
+      <div class="embed-responsive-item" style="width: 100%; z-index: 90; background-color: blue; background: url('images/cover.png'); background-size:cover;" *ngIf = "!onPlaying"></div>
     </div>
   </ion-navbar>
-</ion-header>
 
-<ion-content class="video">
   <div *ngFor="let post of posts">
     <ion-card class="adv-map">
       <div style="position: relative">

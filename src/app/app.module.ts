@@ -6,6 +6,7 @@ import { Page2 } from '../pages/page2/page2';
 import {CandiPage} from "../pages/candi/candi";
 import {DetailPage} from "../pages/detail/detail";
 import {VideoPage} from "../pages/video/video";
+import {LoginModalPage} from "../pages/login-modal/login-modal";
 import {YoutubeService} from "../providers/youtube-service/youtube-service";
 
 @NgModule({
@@ -15,7 +16,8 @@ import {YoutubeService} from "../providers/youtube-service/youtube-service";
     Page2,
     CandiPage,
     DetailPage,
-    VideoPage
+    VideoPage,
+    LoginModalPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -27,7 +29,8 @@ import {YoutubeService} from "../providers/youtube-service/youtube-service";
     Page2,
     CandiPage,
     DetailPage,
-    VideoPage
+    VideoPage,
+    LoginModalPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},YoutubeService]
 })

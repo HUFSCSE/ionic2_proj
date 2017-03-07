@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 'angularfire2';
 import {AuthService} from "../../providers/auth-service/auth-service";
@@ -16,7 +16,7 @@ import {AuthService} from "../../providers/auth-service/auth-service";
 })
 export class LoginModalPage {
 
-  constructor(public af: AngularFire, private _auth: AuthService, public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public af: AngularFire, private _auth: AuthService, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginModalPage');
@@ -32,7 +32,16 @@ export class LoginModalPage {
 
   signInWithGoogle(): void {
     this._auth.signInWithGoogle()
-      .then((success) => this.navigateAbout(success));
+      .then((success) => this.navigateAbout(success), (failed) => {
+
+        let alert = this.alertCtrl.create({
+          title: '알림',
+          subTitle: '구글 인증에 실패하였습니다. 다시한번 시도해주세요.',
+          buttons: ['확인']
+        });
+        alert.present();
+
+      });
   }
 
   private navigateAbout(successData): void {

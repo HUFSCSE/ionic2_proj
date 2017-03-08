@@ -16,9 +16,9 @@
 
 <ion-content padding>
   <ion-list radio-group [(ngModel)]="selected">
-    <ion-item *ngFor="let item of items; let i = index">
-      <ion-label>{{item}}</ion-label>
-      <ion-radio value={{i}}></ion-radio>
+    <ion-item *ngFor="let candi of candis | async">
+      <ion-label>{{candi.name}}</ion-label>
+      <ion-radio value={{candi.$key}}></ion-radio>
     </ion-item>
   </ion-list>
   <button ion-button block (click)="candiChoice()">Select</button>

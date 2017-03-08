@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {DetailPage} from "../detail/detail";
+import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 /*
   Generated class for the Candi page.
@@ -13,20 +14,17 @@ import {DetailPage} from "../detail/detail";
   templateUrl: 'candi.html'
 })
 export class CandiPage {
-  selected: number
-  items = [
-    'Moon',
-    'Ann',
-    'Lee',
-    'You'
-  ]
+  selected: any;
+  candis:FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(af:AngularFire, public navCtrl: NavController, public navParams: NavParams) {
+    this.candis = af.database.list('/candidate');
+  }
 
   candiChoice(){
-    console.log(this.items[this.selected]);
+    console.log(this.selected);
     let params = {
-      idx: this.selected
+      sel: this.selected
     };
     this.navCtrl.push( DetailPage, params);
   }

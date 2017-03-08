@@ -6,14 +6,15 @@
 -->
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>{{items[selected]}}</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <p>{{items[selected]}}</p>
+  <ion-list>
+    <ion-item *ngFor="let plan of pledges">
+      {{plan}}
+    </ion-item>
+  </ion-list>
 </ion-content>

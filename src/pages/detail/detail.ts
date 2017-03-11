@@ -38,6 +38,4 @@ export class DetailPage {
     console.log(this.pledges);
 
   }
-
-
 }

@@ -16,7 +16,7 @@
 
 <ion-content padding>
   <ion-list radio-group [(ngModel)]="selected">
-    <ion-item *ngFor="let candi of candis | async">
+    <ion-item *ngFor="let candi of candis">
       <ion-label>{{candi.name}}</ion-label>
       <ion-radio value={{candi.$key}}></ion-radio>
     </ion-item>

@@ -10,6 +10,7 @@ import {LoginModalPage} from "../pages/login-modal/login-modal";
 import {YoutubeService} from "../providers/youtube-service/youtube-service";
 import {AngularFireModule} from "angularfire2";
 import {AuthService} from "../providers/auth-service/auth-service";
+import {ChartPage} from "../pages/chart/chart";
 
 const firebaseConfig={
   apiKey: "AIzaSyDszBUAqnRlgnpPdcl7u2T4Tsb1QANHhRY",
@@ -27,7 +28,8 @@ const firebaseConfig={
     CandiPage,
     DetailPage,
     VideoPage,
-    LoginModalPage
+    LoginModalPage,
+    ChartPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -41,7 +43,8 @@ const firebaseConfig={
     CandiPage,
     DetailPage,
     VideoPage,
-    LoginModalPage
+    LoginModalPage,
+    ChartPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},YoutubeService,AuthService]
 })

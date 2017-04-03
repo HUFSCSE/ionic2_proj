@@ -15,5 +15,9 @@
 
 
 <ion-content padding>
-          <canvas #barCanvas></canvas>
+  <button ion-button (click)="prevWeek()">이전 주</button>
+  <button ion-button (click)="nextWeek()">다음 주</button>
+
+
+  <canvas #barCanvas></canvas>
 </ion-content>
